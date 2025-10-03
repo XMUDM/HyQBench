@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>HyQBench: Hybrid Table Question Answering Benchmark</h1>
+    <h1>HyQBench</h1>
 </div>
 
 HyQBench is a comprehensive benchmark designed to evaluate and advance the capabilities of different large language models (LLMs) and methods in hybrid queries. It adopts an innovative data collection framework and incorporates optimization algorithms specifically for semantic operators, enabling the fully automated construction of a diverse dataset of high-quality hybrid query instances. In addition, HyQBench is equipped with the first fully automated evaluation framework, composed of four flexible and modular components. We further design enriched evaluation metrics that emphasize the models’ ability to plan efficiently, and pay more attention to key factors in real-world
