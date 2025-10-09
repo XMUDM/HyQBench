@@ -5,9 +5,9 @@
 ## 📑 Contents
 
 - [Overview](#-overview)
-- [Environment Setup](#-environment-setup)
+- [Environment Setup](#️-environment-setup)
 - [Download Data](#-download-data)
-- [Generate Data (Optional)](#-generate-data-optional)
+- [Generate Data (Optional)](#️-generate-data-optional)
 - [Evaluate](#-evaluate)
 - [Relevant Projects](#-relevant-projects)
 

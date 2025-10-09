@@ -45,14 +45,10 @@ A total of six types, each type has two folders, `query` and `table`, which stor
         {
             "initial_table": [
                 {
-                    "member": {
-                        ...
-                    }
+                    "member": "description of member"
                 },
                 {
-                    "major": {
-                        ...
-                    }
+                    "major": "description of major"
                 }
             ]
         },

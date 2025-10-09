@@ -56,7 +56,9 @@ This repository only displays part of the data. For the complete dataset, please
             },
             "has_failed": false
         },
-        ...
+        {
+            "step 2, 3, 4..."
+        },
         {
             "thought": "I now know the final answer",
             "final answer": "races_sem_map_filter_groupby_orderby"
