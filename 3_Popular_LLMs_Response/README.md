@@ -4,10 +4,10 @@
 
 ## 📑 Contents
 
-* [Overview](#📝-overview)
-* [Download Link](#🔗-download-link)
-* [Data Composition](#📋-data-composition)
-* [Data Example](#📊-data-example)
+* [Overview](#-overview)
+* [Download Link](#-download-link)
+* [Data Composition](#-data-composition)
+* [Data Example](#-data-example)
 
 ## 📝 Overview
 

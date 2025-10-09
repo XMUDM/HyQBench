@@ -4,10 +4,10 @@
 
 ## 📑 Contents
 
-* [Overview](#📝-overview)
-* [Download Link](#🔗-download-link)
-* [Directory Structure](#📂-directory-structure)
-* [Data Example](#📊-data-example)
+* [Overview](#-overview)
+* [Download Link](#-download-link)
+* [Directory Structure](#-directory-structure)
+* [Data Example](#-data-example)
 
 
 ## 📝 Overview
