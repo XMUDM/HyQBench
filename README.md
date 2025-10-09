@@ -29,8 +29,4 @@ This repository contains the following main components:
 
 Click to view details.
 
----
-
 If you find HyQBench useful, please star the project!
-
----
