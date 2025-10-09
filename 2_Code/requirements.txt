@@ -13,7 +13,6 @@ black==24.10.0
 blendsql==0.0.47
 bm25s==0.2.14
 Bottleneck==1.6.0
-Brotli @ file:///croot/brotli-split_1736182456865/work
 certifi==2024.12.14
 cfgv==3.4.0
 chardet==5.2.0
@@ -21,8 +20,6 @@ charset-normalizer==3.4.0
 click==8.1.8
 cmake==4.0.0
 colorama==0.4.6
-contourpy @ file:///croot/contourpy_1732540045555/work
-cycler @ file:///tmp/build/80754af9/cycler_1637851556182/work
 dashscope==1.20.14
 decorator==5.2.1
 diskcache==5.6.3
@@ -34,7 +31,6 @@ exceptiongroup==1.2.2
 executing==2.2.1
 faiss-cpu==1.9.0.post1
 filelock==3.16.1
-fonttools @ file:///croot/fonttools_1737039080035/work
 frozenlist==1.5.0
 fsspec==2024.12.0
 genai==2.1.0
@@ -61,7 +57,6 @@ jsonpatch==1.33
 jsonpointer==3.0.0
 jsonschema==4.23.0
 jsonschema-specifications==2024.10.1
-kiwisolver @ file:///croot/kiwisolver_1737039087198/work
 langchain==0.3.13
 langchain-core==0.3.27
 langchain-text-splitters==0.3.4
@@ -86,8 +81,6 @@ mkdocs-material-extensions==1.3.1
 mkdocstrings==0.27.0
 mkdocstrings-python==1.13.0
 mkl-service==2.4.0
-mkl_fft @ file:///io/mkl313/mkl_fft_1730824109137/work
-mkl_random @ file:///io/mkl313/mkl_random_1730823916628/work
 mpmath==1.3.0
 multidict==6.1.0
 mypy==1.14.1
@@ -121,7 +114,6 @@ nvidia-nvtx-cu12==12.1.105
 openai==1.91.0
 ordered-set==4.1.0
 orjson==3.10.12
-packaging @ file:///croot/packaging_1734472117206/work
 paginate==0.5.7
 pandas==2.2.3
 parso==0.8.5
@@ -145,11 +137,8 @@ Pygments==2.19.1
 pygments-ansi-color==0.3.0
 pymdown-extensions==10.14.1
 PyMySQL==1.1.1
-pyparsing @ file:///croot/pyparsing_1731445506121/work
 PyQt6==6.7.1
-PyQt6_sip @ file:///croot/pyqt-split_1744804475988/work/pyqt_sip
 pytest==8.3.4
-python-dateutil @ file:///croot/python-dateutil_1716495738603/work
 python-dotenv==1.0.1
 pytz==2024.2
 PyYAML==6.0.2
@@ -165,8 +154,6 @@ safetensors==0.4.5
 scikit-learn==1.6.0
 scipy==1.14.1
 sentence-transformers==3.3.1
-sip @ file:///croot/sip_1738856193618/work
-six @ file:///croot/six_1744271502820/work
 skrub==0.6.2
 sniffio==1.3.1
 some-package==0.1
@@ -180,9 +167,7 @@ tenacity==9.0.0
 threadpoolctl==3.5.0
 tiktoken==0.8.0
 tokenizers==0.21.0
-tomli @ file:///opt/conda/conda-bld/tomli_1657175507142/work
 torch==2.1.0
-tornado @ file:///croot/tornado_1748956929273/work
 tqdm==4.67.1
 traitlets==5.14.3
 transformers==4.52.4
@@ -190,7 +175,6 @@ triton==2.1.0
 typeguard==4.4.4
 typing_extensions==4.15.0
 tzdata==2024.2
-unicodedata2 @ file:///croot/unicodedata2_1736541023050/work
 urllib3==2.2.3
 verspec==0.1.0
 virtualenv==20.29.1

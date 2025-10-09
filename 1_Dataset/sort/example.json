@@ -1,0 +1,144 @@
+{
+    "database": "financial",
+    "type": "nested",
+    "query": "What is the difference between the average salary in the districts of the 3 oldest male clients and the overall average salary across all districts?",
+    "process": [
+        {
+            "initial_table": [
+                {
+                    "client": {
+                        "*": "all columns",
+                        "client_id": "description: column_description=the unique number; value_description=NULL dtype=int64 e.g. 4033; 4989; 3310; 784; 4369; 1841",
+                        "gender": "description: column_description=NULL; value_description=F：female  M：male  dtype=object e.g. M; F",
+                        "birth_date": "description: column_description=birth date; value_description=NULL dtype=object e.g. 1972-11-17; 1927-12-20; 1951-12-23; 1978-10-11; 1974-12-22; 1939-12-09",
+                        "district_id": "description: column_description=location of branch; value_description=NULL dtype=int64 e.g. 41; 56; 1; 13; 44; 17"
+                    }
+                },
+                {
+                    "district": {
+                        "*": "all columns",
+                        "district_id": "description: column_description=location of branch; value_description=NULL dtype=int64 e.g. 71; 43; 40; 60; 63; 56",
+                        "A2": "description: column_description=district_name; value_description=NULL dtype=object e.g. Chomutov; Benesov; Sokolov; Karlovy Vary; Plzen - mesto; Most",
+                        "A3": "description: column_description=region; value_description=NULL dtype=object e.g. south Bohemia; east Bohemia; north Bohemia; north Moravia; south Moravia; central Bohemia",
+                        "A4": "description: column_description=NULL; value_description=NULL dtype=int64 e.g. 106054; 92084; 74062; 157042; 85852; 112709",
+                        "A5": "description: column_description=municipality < district < region; value_description=NULL dtype=int64 e.g. 32; 35; 151; 65; 94; 0",
+                        "A6": "description: column_description=municipality < district < region; value_description=NULL dtype=int64 e.g. 0; 28; 24; 17; 35; 41",
+                        "A7": "description: column_description=municipality < district < region; value_description=NULL dtype=int64 e.g. 12; 11; 6; 9; 14; 0",
+                        "A8": "description: column_description=municipality < district < region; value_description=NULL dtype=int64 e.g. 1; 2; 3; 0; 4; 5",
+                        "A9": "description: column_description=NULL; value_description=not useful dtype=int64 e.g. 10; 1; 8; 2; 5; 7",
+                        "A10": "description: column_description=ratio of urban inhabitants; value_description=NULL dtype=float64 e.g. 63.6; 46.0; 48.3; 36.9; 59.0; 87.7",
+                        "A11": "description: column_description=average salary; value_description=NULL dtype=int64 e.g. 8930; 8544; 8507; 10124; 10446; 8427",
+                        "A12": "description: column_description=unemployment rate 1995; value_description=NULL dtype=float64 e.g. 0.6; 0.4; 3.3; 2.8; 2.5; 3.8",
+                        "A13": "description: column_description=unemployment rate 1996; value_description=NULL dtype=float64 e.g. 1.86; 4.5; 1.54; 3.76; 7.61; 6.55",
+                        "A14": "description: column_description=no. of entrepreneurs per 1000 inhabitants; value_description=NULL dtype=int64 e.g. 123; 112; 154; 90; 116; 155",
+                        "A15": "description: column_description=no. of committed crimes 1995; value_description=NULL dtype=float64 e.g. 6445.0; 5623.0; 6079.0; 4063.0; 3659.0; 1879.0",
+                        "A16": "description: column_description=no. of committed crimes 1996; value_description=NULL dtype=int64 e.g. 2618; 1127; 1668; 1879; 6295; 6261"
+                    }
+                }
+            ]
+        },
+        {
+            "operator": "filter",
+            "params": "client;;gender;;[(eq, M)]",
+            "result": "client_filter: {'*': 'all columns', 'client_id': 'dtype=int64 e.g. 1280; 6468; 3019; 2548; 3032; 4929', 'gender': 'dtype=object e.g. M', 'birth_date': 'dtype=object e.g. 1935-10-16; 1974-11-28; 1963-10-20; 1979-01-24; 1978-08-29; 1970-10-30', 'district_id': 'dtype=int64 e.g. 30; 21; 65; 72; 4; 77'} table_length: 516",
+            "current_table": [
+                "client",
+                "district",
+                "client_filter"
+            ],
+            "execution_time": 0.003062009811401367,
+            "Thought": "First, I need to filter the clients to only include male clients since the query specifically asks about male clients. I will use the `filter` operator on the `client` table with the condition `gender = 'M'`."
+        },
+        {
+            "operator": "join",
+            "params": "client_filter;;district;;district_id;;district_id",
+            "result": "client_filter_join: {'*': 'all columns', 'client_id': 'dtype=int64 e.g. 4725; 1461; 5376; 4251; 3134; 12144', 'gender': 'dtype=object e.g. M', 'birth_date': 'dtype=object e.g. 1943-01-17; 1969-02-26; 1937-09-14; 1943-09-13; 1971-04-28; 1943-03-09', 'district_id': 'dtype=int64 e.g. 1; 32; 9; 46; 73; 26', 'A2': 'dtype=object e.g. Karlovy Vary; Liberec; Plzen - mesto; Zdar nad Sazavou; Litomerice; Rokycany', 'A3': 'dtype=object e.g. Prague; central Bohemia; south Moravia; west Bohemia; east Bohemia; south Bohemia', 'A4': 'dtype=int64 e.g. 75232; 58400; 77963; 74062; 51313; 45714', 'A5': 'dtype=int64 e.g. 60; 74; 139; 87; 22; 65', 'A6': 'dtype=int64 e.g. 4; 30; 13; 42; 33; 16', 'A7': 'dtype=int64 e.g. 13; 0; 1; 20; 9; 14', 'A8': 'dtype=int64 e.g. 1; 2; 3; 0; 5; 4', 'A9': 'dtype=int64 e.g. 2; 9; 1; 8; 6; 5', 'A10': 'dtype=float64 e.g. 55.6; 50.9; 81.8; 87.7; 59.8; 59.1', 'A11': 'dtype=int64 e.g. 9675; 8720; 10787; 8187; 10177; 8980', 'A12': 'dtype=float64 e.g. 1.3; 2.6; 2.7; 2.4; 2.2; 1.0', 'A13': 'dtype=float64 e.g. 9.4; 7.68; 4.2; 3.74; 5.88; 4.31', 'A14': 'dtype=int64 e.g. 132; 126; 120; 81; 107; 97', 'A15': 'dtype=float64 e.g. 2247.0; 2112.0; 9672.0; 1740.0; 5179.0; 1822.0', 'A16': 'dtype=int64 e.g. 3040; 3620; 4505; 2618; 5190; 2807'} table_length: 516",
+            "current_table": [
+                "client",
+                "district",
+                "client_filter",
+                "client_filter_join"
+            ],
+            "execution_time": 0.01187896728515625,
+            "Thought": "Now that I have the filtered list of male clients, I need to join this with the `district` table to get the district information for each client. I will use the `join` operator to connect the `client_filter` table with the `district` table on the `district_id` column."
+        },
+        {
+            "operator": "sem_topk",
+            "params": "client_filter_join;;Which male client has the earliest {birth_date}?;;3",
+            "result": "client_filter_join_sem_topk: {'*': 'all columns', 'client_id': 'dtype=int64 e.g. 1329; 1974; 189', 'gender': 'dtype=object e.g. M', 'birth_date': 'dtype=object e.g. 1918-02-16; 1918-07-14; 1919-08-10', 'district_id': 'dtype=int64 e.g. 26; 10; 11', 'A2': 'dtype=object e.g. Plzen - mesto; Praha - vychod; Praha - zapad', 'A3': 'dtype=object e.g. west Bohemia; central Bohemia', 'A4': 'dtype=int64 e.g. 170449; 92084; 75637', 'A5': 'dtype=int64 e.g. 0; 55; 35', 'A6': 'dtype=int64 e.g. 0; 29; 36', 'A7': 'dtype=int64 e.g. 0; 4; 9', 'A8': 'dtype=int64 e.g. 1; 3; 0', 'A9': 'dtype=int64 e.g. 1; 5; 7', 'A10': 'dtype=float64 e.g. 100.0; 46.7; 36.5', 'A11': 'dtype=int64 e.g. 10787; 10124; 9622', 'A12': 'dtype=float64 e.g. 2.6; 0.5; 0.4', 'A13': 'dtype=float64 e.g. 3.09; 0.54; 0.59', 'A14': 'dtype=int64 e.g. 131; 141; 154', 'A15': 'dtype=float64 e.g. 6041.0; 3810.0; 3475.0', 'A16': 'dtype=int64 e.g. 6261; 4316; 3529'} table_length: 3",
+            "current_table": [
+                "client",
+                "district",
+                "client_filter",
+                "client_filter_join",
+                "client_filter_join_sem_topk"
+            ],
+            "execution_time": 208.46957635879517,
+            "Thought": "Next, I need to find the 3 oldest male clients. Since age is determined by the earliest birth date, I will use the `sem_topk` operator to find the clients with the earliest `birth_date` values. I will limit the result to the top 3 clients."
+        },
+        {
+            "operator": "map",
+            "params": "client_filter_join_sem_topk;;[client_id, birth_date, A11, A13]",
+            "result": "client_filter_join_sem_topk_map: {'*': 'all columns', 'client_id': 'dtype=int64 e.g. 1329; 1974; 189', 'birth_date': 'dtype=object e.g. 1918-02-16; 1918-07-14; 1919-08-10', 'A11': 'dtype=int64 e.g. 10787; 10124; 9622', 'A13': 'dtype=float64 e.g. 3.09; 0.54; 0.59'} table_length: 3",
+            "current_table": [
+                "client",
+                "district",
+                "client_filter",
+                "client_filter_join",
+                "client_filter_join_sem_topk",
+                "client_filter_join_sem_topk_map"
+            ],
+            "execution_time": 0.0021500587463378906,
+            "Thought": "Now that I have the 3 oldest male clients and their district information, I will map the relevant columns (`client_id`, `birth_date`, `A11`, `A13`) to simplify the table for further operations."
+        },
+        {
+            "operator": "agg",
+            "params": "client_filter_join_sem_topk_map;;A11;;mean",
+            "result": "result: 10177.666666666666",
+            "current_table": [
+                "client",
+                "district",
+                "client_filter",
+                "client_filter_join",
+                "client_filter_join_sem_topk",
+                "client_filter_join_sem_topk_map"
+            ],
+            "execution_time": 0.00014591217041015625,
+            "Thought": "I need to calculate the average salary (`A11`) for the districts where these 3 oldest male clients live. I will use the `agg` operator to compute the mean of the `A11` column in the `client_filter_join_sem_topk_map` table."
+        },
+        {
+            "operator": "agg",
+            "params": "district;;A11;;mean",
+            "result": "result: 9031.675324675325",
+            "current_table": [
+                "client",
+                "district",
+                "client_filter",
+                "client_filter_join",
+                "client_filter_join_sem_topk",
+                "client_filter_join_sem_topk_map"
+            ],
+            "execution_time": 0.00012874603271484375,
+            "Thought": "To find the overall average salary across all districts, I will use the `agg` operator to compute the mean of the `A11` column in the original `district` table."
+        },
+        {
+            "operator": "value_calculate",
+            "params": "sub;;9031.675324675325;;8994.666666666666",
+            "result": "result: 37.00865800865904",
+            "current_table": [
+                "client",
+                "district",
+                "client_filter",
+                "client_filter_join",
+                "client_filter_join_sem_topk",
+                "client_filter_join_sem_topk_map"
+            ],
+            "execution_time": 2.193450927734375e-05,
+            "Thought": "Finally, I need to calculate the difference between the average salary in the districts of the 3 oldest male clients and the overall average salary. I will use the `value_calculate` operator to subtract the overall average salary from the average salary of the districts of the 3 oldest male clients."
+        },
+        {
+            "Thought": "I now have the final answer.",
+            "Final Answer": 37.00865800865904
+        }
+    ]
+}

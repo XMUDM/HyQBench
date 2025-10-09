@@ -1,0 +1,9 @@
+{
+    "query": "Show the molecule IDs and their carcinogenic labels for all molecules that contain nitrogen atoms.",
+    "SQL": "SELECT DISTINCT m.molecule_id, m.label\nFROM molecule AS m\nJOIN atom AS a ON m.molecule_id = a.molecule_id\nWHERE {{ LLMMap('Does the atom element represent nitrogen?', a.element) }} = TRUE",
+    "cost": {
+        "prompt_tokens": 486,
+        "completion_tokens": 18,
+        "total_tokens": 504
+    }
+}

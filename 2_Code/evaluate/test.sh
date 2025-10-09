@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Settings
+# Configuration
 GPU_DEVICES="0,1"           # GPU
 TARGET="lotus"              # lotus, blendsql, cost
 MODEL="DeepSeek-V3"         

@@ -7,7 +7,7 @@ deployment, such as computational cost. The project aims to promote fair, accura
 
 ---
 
-## 📂 Contents
+## 📑 Contents
 
 This repository contains the following main components:
 
