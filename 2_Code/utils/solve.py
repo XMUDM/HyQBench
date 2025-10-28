@@ -28,7 +28,7 @@ class solver:
             self.preprocess()
         except Exception as e:
             print(f"Error in preprocessing: {e}. Keep original tables.")
-        if self.steps:
+        if not self.steps:
             self.parser = parser(model, query, self.tables)
         self.planner = None
         self.result = None

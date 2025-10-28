@@ -27,6 +27,7 @@ def main():
                         help='Choose model')
     args = parser.parse_args()
 
+    target = args.target
     test_data = []
     if target == 'lotus' or target == 'blendsql':
         for root, dirs, files in os.walk(f'./test/end2end'):

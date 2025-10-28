@@ -11,11 +11,11 @@ echo "GPU: $GPU_DEVICES"
 echo "Model: $MODEL"
 
 if [ "$TARGET" == "lotus" ]; then
-    Script="testbed.py --method lotus"
+    Script="testbed.py --target lotus"
 elif [ "$TARGET" == "blendsql" ]; then
-    Script="testbed.py --method blendsql"
+    Script="testbed.py --target blendsql"
 elif [ "$TARGET" == "cost" ]; then
-    Script="testbed_cost.py"
+    Script="testbed.py --target cost" 
 else
     echo "Unknown TARGET: $TARGET"
     exit 1
